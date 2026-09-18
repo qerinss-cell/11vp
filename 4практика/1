@@ -1,0 +1,4 @@
+from math import *
+x=float(input())
+z=ceil(x)+floor(x)
+print(z)
