@@ -1,0 +1,11 @@
+from math import *
+print("Введите х1")
+x1=float(input())
+print("Введите y1")
+y1=float(input())
+print("Введите х2")
+x2=float(input())
+print("Введите y2")
+y2=float(input())
+evkl=sqrt((x2-x1)**2 + (y2-y1)**2)
+print("Расстояние между точками;",evkl)
