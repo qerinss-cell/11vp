@@ -1,0 +1,8 @@
+def imt(ves,hight):
+    """Функция рассчитывает индекс массы тела"""
+    index=ves/(hight**2)
+    return index
+
+ves, hight = map(float, input("Введите свой вес и рост(вес рост(в метрах)): ").split())
+Imt=imt(ves,hight)
+print(f"Ваш индекс массы тела при весе {ves} килограмма и росте {hight} метра составляет {Imt:.1f}")
