@@ -1,0 +1,18 @@
+from math import *
+def Evkl(x1, y1, x2, y2):
+    """функция определяет расстояние между точками"""
+    evkl=sqrt((x2-x1)**2 + (y2 - y1)**2)
+    return evkl
+
+x1, y1 = map(float, input("Введите координаты первой точки (x y) : ").split())
+x2, y2 = map(float, input("Введите координаты второй точки (x y) : ").split())
+x3, y3 = map(float, input("Введите координаты третьей точки (x y) : ").split())
+distance1=Evkl(x1,y1,x2,y2)
+distance2=Evkl(x3,y3,x2,y2)
+distance3=Evkl(x3,y3,x1,y1)
+def calculate_triangle_area(a, b, c):
+    """Фунция принимает на вход длины трех сторон и вычисляет площадь по формуле Герона """
+    p = (a + b + c) / 2
+    return sqrt(p * (p - a) * (p - b) * (p - c))
+ploshad=calculate_triangle_area(distance1,distance2,distance3)
+print(f"Площадь треугольника составляет {ploshad:.2f} единиц в квадрате")
