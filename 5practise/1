@@ -1,0 +1,12 @@
+def rachet (doxod,NALOG):
+    """Функиця вычисляет сумму налога """
+    size_nalog=doxod * NALOG
+    return  size_nalog
+
+NALOG=0.13
+print("Введите свой годовой доход:")
+doxod = float(input())
+
+all_nalog= rachet(doxod,NALOG)
+after_nalog= doxod - all_nalog
+print(f"Общая сумма дохода - {doxod:.2f},cумма налога составляет - {all_nalog:.2f} рублей и сумма после вычета налога составляет {after_nalog:.2f} рублей")
