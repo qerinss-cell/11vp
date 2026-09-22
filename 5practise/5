@@ -1,0 +1,31 @@
+K5, K2, K1, K50, K20, K10 = 5000, 2000, 1000, 500, 200, 100
+
+
+def raschet_kupyur(summa):
+    """Считает количество купюр."""
+    k5 = summa // K5
+    summa = summa % K5
+    k2 = summa // K2
+    summa = summa % K2
+    k1 = summa // K1
+    summa = summa % K1
+    k50 = summa // K50
+    summa = summa % K50
+    k20 = summa // K20
+    summa = summa % K20
+    k10 = summa // K10
+    summa = summa % K10
+    return k5, k2, k1, k50, k20, k10
+
+
+
+summa = int(input("Введите сумму для снятия (кратную 100): "))
+k5, k2, k1, k50, k20, k10 = raschet_kupyur(summa)
+
+print("Банкомат выдаст:")
+print(f"5000 руб.: {k5} шт.")
+print(f"2000 руб.: {k2} шт.")
+print(f"1000 руб.: {k1} шт.")
+print(f"500 руб.: {k50} шт.")
+print(f"200 руб.: {k20} шт.")
+print(f"100 руб.: {k10} шт.")
