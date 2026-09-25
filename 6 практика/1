@@ -1,0 +1,13 @@
+temp, davlenie, puls = map(float, input("Введите температуру, давление(верхнее) и пульс через пробел:").split())
+if (36 <= temp <= 37) and (110 <= davlenie <= 130) and (60 <= puls <= 110):
+    print("Вы здоровы, данные в норме")
+elif ((35 <= temp <= 36 or 37 <= temp <= 38)
+      and (105 <= davlenie <= 110 or 130 <= davlenie <= 140)
+      and (55 <= puls <= 60 or 100 <= puls <= 110)):
+    print("У вас легкое недомогание")
+elif ((temp < 35 or temp > 38)
+      and (davlenie < 105 or davlenie > 140)
+      and (puls < 55 or puls > 110)):
+    print("Требуется врач")
+else:
+    print("Перепроверьте свои данные")
