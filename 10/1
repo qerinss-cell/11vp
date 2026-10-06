@@ -1,0 +1,10 @@
+TRY_COD = 4590
+while True:
+    print("Введите код")
+    x = int(input())
+    if x == TRY_COD:
+        print("Доступ разрешен")
+        break
+    else:
+        print("Ошибка.Попробуйте еще раз")
+        continue
