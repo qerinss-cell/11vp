@@ -1,0 +1,5 @@
+num = int(input("Введите число "))
+nechet_num = list(range(1, num + 1, 2))
+
+print("Список нечетных чисел:")
+print(*nechet_num, sep=",")
