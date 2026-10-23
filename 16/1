@@ -1,0 +1,10 @@
+#не хватало int
+n = int(input())
+#начальное произведение равно 0
+product = 1
+#цикл до нуля
+while n > 0:
+    digit = n % 10
+    product = product * digit
+    n //= 10
+print(product)
