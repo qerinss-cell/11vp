@@ -1,0 +1,112 @@
+import random
+
+HEALTH = 100
+DAMAGE_TRAPS = 10
+DAMAGE_ENEMIES = 50
+
+symbols = "01010010101лмз"
+labirint = []
+
+for _ in range(25):
+    random_index = random.randint(0, len(symbols) - 1)
+    labirint.append(symbols[random_index])
+
+
+pos_n = random.randint(0, 24)
+pos_f = random.randint(0, 24)
+
+while pos_n == pos_f:
+    pos_f = random.randint(0, 24)
+
+labirint[pos_n] = "н"
+labirint[pos_f] = "ф"
+
+
+#print(*labirint[0:5])
+#print(*labirint[5:10])
+#print(*labirint[10:15])
+#print(*labirint[15:20])
+#print(*labirint[20:25])
+
+emoji_labirint = ""
+
+for symbol in labirint:
+    match symbol:
+        case "0":
+            emoji_labirint += "⬜"
+        case "1":
+            emoji_labirint += "⬛"
+        case "л":
+            emoji_labirint += "🔷"
+        case "м":
+            emoji_labirint += "🟡"
+        case "ф":
+            emoji_labirint += "🟫"
+        case "з":
+            emoji_labirint += "😡"
+        case "н":
+            emoji_labirint += "⭐"
+
+print("Лабиринт с эмодзи:")
+print(emoji_labirint[0:5])
+print(emoji_labirint[5:10])
+print(emoji_labirint[10:15])
+print(emoji_labirint[15:20])
+print(emoji_labirint[20:25])
+
+
+print("-" * 20)
+
+row_n = col_n = 0  # Координаты входа
+row_f = col_f = 0  # Координаты выхода
+
+# Ищем обе точки в цикле
+for i in range(len(labirint)):
+    if labirint[i] == "н":
+        row_n = i // 5
+        col_n = i % 5
+    elif labirint[i] == "ф":
+        row_f = i // 5
+        col_f = i % 5
+
+print(f"Координаты входа : строка {row_n}, столбец {col_n}")
+print(f"Координаты выхода : строка {row_f}, столбец {col_f}")
+
+distance = abs(row_n - row_f) + abs(col_n - col_f)
+
+print(f"Расстояние между входом и выходом: {distance} шага/ов")
+
+count_monet = 0
+for i in labirint:
+    if i == "м":
+        count_monet += 1
+print(f"Количество монет :{count_monet} * 🟡 ")
+
+print("-" * 20)
+
+count_traps = labirint.count("л")
+count_enemies = labirint.count("з")
+damage = (count_traps * DAMAGE_TRAPS) + (count_enemies * DAMAGE_ENEMIES)
+HEALTH = HEALTH - damage
+
+if HEALTH < 0:
+    HEALTH = 0
+
+print(f"Ловушек: {count_traps}, Врагов: {count_enemies}")
+print(f"Осталось здоровья: {HEALTH} HP")
+
+full_hearts = HEALTH // 10
+no_hearts = (100 - HEALTH) // 10
+hearts_string = "♥" * full_hearts + "♡" * no_hearts
+print(f"Количество сердец: {hearts_string}")
+if HEALTH == 0:
+    print("Итог: Игрок погиб!")
+else:
+    print("Итог: Игрок выжил!")
+
+
+print("-" * 20)
+
+
+
+
